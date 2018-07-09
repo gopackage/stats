@@ -18,7 +18,7 @@ func init() {
 }
 
 // Count increments a stat.
-func Count(name string, amount int64) {
+func Count(name string, amount int) {
 	if sender != nil {
 		sender.Count(name, amount)
 	}
@@ -74,7 +74,7 @@ func (s *Sender) Buffer(buf chan string) chan string {
 }
 
 // Count sends a counted statistic.
-func (s *Sender) Count(name string, amount int64) {
+func (s *Sender) Count(name string, amount int) {
 	// TODO benchmark and determine most efficient way to format the strings...
 	if s.prefixed {
 		if s.suffixed {
